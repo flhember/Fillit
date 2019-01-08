@@ -6,7 +6,7 @@
 #    By: flhember <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/11 15:51:59 by flhember          #+#    #+#              #
-#    Updated: 2018/12/14 19:46:50 by flhember         ###   ########.fr        #
+#    Updated: 2018/12/17 18:09:32 by flhember         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,8 @@ OBJ_PATH = ./obj/
 LIB_PATH = ./Libft/
 INC_PATH = ./includes/
 
-SRC_FILES = main.c
+SRC_FILES = main.c 				\
+			read_and_check.c 
 
 INC_FILES = fillit.h
 
