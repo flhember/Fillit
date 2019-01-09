@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fillit.h                                           :+:      :+:    :+:   */
+/*   ft_lstaddrev.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flhember <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/11 15:56:01 by flhember          #+#    #+#             */
-/*   Updated: 2019/01/09 11:55:38 by flhember         ###   ########.fr       */
+/*   Created: 2019/01/09 15:20:46 by flhember          #+#    #+#             */
+/*   Updated: 2019/01/09 15:33:40 by flhember         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FILLIT_H
-# define FILLIT_H
+#include "libft.h"
 
-# include "../Libft/includes/libft.h"
-# include <fcntl.h>
-# include <stdio.h> // a retirer !!!!!!!!!!!!!!!!!
+// marche pas
 
-t_list		*ft_read_file(int fd, t_list **list);
-
-#endif
+void	ft_lstaddrev(t_list *alst, t_list *new)
+{
+	while (alst->next)
+		alst = alst->next;
+	alst->next = new;
+}
