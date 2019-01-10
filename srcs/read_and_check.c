@@ -6,7 +6,7 @@
 /*   By: flhember <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/17 16:33:49 by flhember          #+#    #+#             */
-/*   Updated: 2019/01/10 17:36:26 by flhember         ###   ########.fr       */
+/*   Updated: 2019/01/10 18:06:43 by flhember         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int		ft_check_tetri(char *tetri)
 		i++;
 	}
 	if (nb != 4)
-		return (-1);
+		return (0);
 	return (1);
 }
 
@@ -52,9 +52,8 @@ int		ft_check_tetri_valid(char *tetri)
 		}
 		i++;
 	}
-	printf("j = %d\n", j);
 	if (j < 6)
-		return (-1);
+		return (0);
 	return (1);
 }
 
@@ -63,9 +62,9 @@ int		ft_check(char *tetri)
 	//if (!(ft_check_char(tetri)))
 	//	return (-1);
 	if (!(ft_check_tetri(tetri)))
-		return (-1);
+		return (0);
 	if (!(ft_check_tetri_valid(tetri)))
-		return (-1);
+		return (0);
 	return (1);
 }
 
@@ -85,7 +84,6 @@ t_list		*ft_read_file(int fd, t_list **list)
 			ft_putendl_fd("Not a valid file", 2);
 			return (NULL);
 		}
-		printf("ouai ouai\n");
 		tmp = ft_lstnew(buf, ft_strlen(buf));
 		ft_lstadd(list, tmp);
 	}
