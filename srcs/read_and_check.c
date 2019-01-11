@@ -6,7 +6,7 @@
 /*   By: flhember <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/17 16:33:49 by flhember          #+#    #+#             */
-/*   Updated: 2019/01/11 15:22:39 by flhember         ###   ########.fr       */
+/*   Updated: 2019/01/11 15:47:04 by flhember         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,6 @@ t_piece		*ft_read_file(int fd, t_piece **list)
 
 	alpha = 0;
 	tmp = *list;
-	tmp = ft_lstnewtetri("\0", 1, 0);
 	while ((ret = read(fd, buf, 21)))
 	{
 		buf[ret] = '\0';
@@ -115,7 +114,6 @@ t_piece		*ft_read_file(int fd, t_piece **list)
 		}
 		tmp = ft_lstnewtetri(buf, ft_strlen(buf), alpha);
 		ft_lstaddtetri(list, tmp);
-		ft_putchar((char)(tmp->alpha));
 		alpha++;
 	}
 	if (tmp->content_size != 20)
