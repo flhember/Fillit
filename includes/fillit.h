@@ -6,11 +6,7 @@
 /*   By: flhember <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 15:56:01 by flhember          #+#    #+#             */
-<<<<<<< HEAD
 /*   Updated: 2019/01/11 15:40:27 by flhember         ###   ########.fr       */
-=======
-/*   Updated: 2019/01/11 15:22:50 by flhember         ###   ########.fr       */
->>>>>>> bf1ca4aaeb3ebeb32b42ca2b34fa94ed5512ac5f
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +16,8 @@
 # include "../Libft/includes/libft.h"
 # include <fcntl.h>
 # include <stdio.h> // a retirer !!!!!!!!!!!!!!!!!
+
+# define TETRI_SIZE 21
 
 typedef struct		s_piece
 {

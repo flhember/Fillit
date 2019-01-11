@@ -97,26 +97,26 @@ int			ft_check(char *tetri)
 
 t_piece		*ft_read_file(int fd, t_piece **list)
 {
-	int		ret;
-	char	buf[21];
+	int	ret;
+	char	buff[TETRI_SIZE];
 	t_piece	*tmp;
-	int		alpha;
+	int	alpha;
 
 	alpha = 0;
 	tmp = *list;
-	while ((ret = read(fd, buf, 21)))
+	while ((ret = read(fd, buff, 21)))
 	{
-		buf[ret] = '\0';
-		if ((!ft_check(buf)))
+		buff[ret] = '\0';
+		if ((!ft_check(buff)))
 		{
 			ft_putendl_fd("Not a valid file", 2);
 			return (NULL);
 		}
-		tmp = ft_lstnewtetri(buf, ft_strlen(buf), alpha);
+		tmp = ft_lstnewtetri(buff, ft_strlen(buff), alpha);
 		ft_lstaddtetri(list, tmp);
 		alpha++;
 	}
-	if (tmp->content_size != 20)
+	if (tmp->content_size != (TETRI_SIZE - 1))
 	{
 		ft_putendl_fd("Not a valid file", 2);
 		return (NULL);
