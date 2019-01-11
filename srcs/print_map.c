@@ -1,40 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   print_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: flhember <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/11 16:03:11 by flhember          #+#    #+#             */
-/*   Updated: 2019/01/11 11:46:38 by flhember         ###   ########.fr       */
+/*   Created: 2019/01/11 11:26:19 by flhember          #+#    #+#             */
+/*   Updated: 2019/01/11 12:01:25 by flhember         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fillit.h"
 
-int		main(int argc, char **argv)
+void	search_replace(t_piece **tetri)
 {
-	int		fd;
-	t_piece	*tetri;
+	int		i;
+	t_piece	*tmp;
 
-	if (argc <= 1 || argc > 2)
+	tmp = *tetri;
+	i = 0;
+	while (tmp)
 	{
-		ft_putendl_fd("fillit: error\nUsage: [1 source_file]", 2);
-		return (1);
+		while (((char*)(tmp)->content)[i])
+		{
+			if (((char*)(tmp)->content)[i] == '#')
+				((char*)(tmp)->content)[i] = tmp->alpha;
+			i++;
+		}
+		tmp = tmp->next;
 	}
-	if ((fd = open(argv[1], O_RDONLY)) < 0)
-	{
-		ft_putendl_fd("open() failed.", 2);
-		return (1);
-	}
-	if (!(tetri = ft_read_file(fd, &tetri)))
-	{
-		close(fd);
-		return (1);
-	}
-	ft_print_map(tetri);
-	search_replace(&tetri);
-	ft_print_map(tetri);
-	close(fd);
-	return (0);
 }
+

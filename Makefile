@@ -6,7 +6,7 @@
 #    By: flhember <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/11 15:51:59 by flhember          #+#    #+#              #
-#    Updated: 2019/01/09 14:48:06 by flhember         ###   ########.fr        #
+#    Updated: 2019/01/11 11:45:26 by flhember         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,10 @@ LIB_PATH = ./Libft/
 INC_PATH = ./includes/
 
 SRC_FILES = main.c 				\
-			read_and_check.c 
+			read_and_check.c	\
+			more_ft.c			\
+			print_map.c			\
+			ft_test.c
 
 INC_FILES = fillit.h
 

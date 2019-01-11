@@ -6,7 +6,7 @@
 /*   By: flhember <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/17 16:33:49 by flhember          #+#    #+#             */
-/*   Updated: 2019/01/11 10:34:47 by flhember         ###   ########.fr       */
+/*   Updated: 2019/01/11 11:51:41 by flhember         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,14 +95,16 @@ int			ft_check(char *tetri)
 	return (1);
 }
 
-t_list		*ft_read_file(int fd, t_list **list)
+t_piece		*ft_read_file(int fd, t_piece **list)
 {
 	int		ret;
 	char	buf[21];
-	t_list	*tmp;
+	t_piece	*tmp;
+	int		alpha;
 
+	alpha = 0;
 	tmp = *list;
-	tmp = ft_lstnew("\0", 1);
+	tmp = ft_lstnewtetri("\0", 1, 0);
 	while ((ret = read(fd, buf, 21)))
 	{
 		buf[ret] = '\0';
@@ -111,8 +113,10 @@ t_list		*ft_read_file(int fd, t_list **list)
 			ft_putendl_fd("Not a valid file", 2);
 			return (NULL);
 		}
-		tmp = ft_lstnew(buf, ft_strlen(buf));
-		ft_lstadd(list, tmp);
+		tmp = ft_lstnewtetri(buf, ft_strlen(buf), alpha);
+		ft_lstaddtetri(list, tmp);
+		ft_putchar((char)(tmp->alpha));
+		alpha++;
 	}
 	if (tmp->content_size != 20)
 	{

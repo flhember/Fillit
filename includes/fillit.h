@@ -6,7 +6,7 @@
 /*   By: flhember <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 15:56:01 by flhember          #+#    #+#             */
-/*   Updated: 2019/01/09 11:55:38 by flhember         ###   ########.fr       */
+/*   Updated: 2019/01/11 11:44:47 by flhember         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,21 @@
 # include <fcntl.h>
 # include <stdio.h> // a retirer !!!!!!!!!!!!!!!!!
 
-t_list		*ft_read_file(int fd, t_list **list);
+typedef struct		s_piece
+{
+	void			*content;
+	size_t			content_size;
+	int				alpha;
+	int				x;
+	int				y;
+	struct	s_piece	*next;
+
+}					t_piece;
+
+t_piece				*ft_read_file(int fd, t_piece **list);
+void				ft_lstaddtetri(t_piece **alst, t_piece *new);
+t_piece				*ft_lstnewtetri(void const *content, size_t content_size, int nb);
+void				search_replace(t_piece **tetri);
+void				ft_print_map(t_piece *list);
 
 #endif
