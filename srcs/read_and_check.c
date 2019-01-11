@@ -6,13 +6,40 @@
 /*   By: flhember <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/17 16:33:49 by flhember          #+#    #+#             */
-/*   Updated: 2019/01/11 09:46:01 by flhember         ###   ########.fr       */
+/*   Updated: 2019/01/11 10:34:47 by flhember         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fillit.h"
 
-int		ft_check_tetri(char *tetri)
+int			ft_check_char(char *tetri)
+{
+	int		i;
+	int		line_width;
+
+	i = 0;
+	line_width = 0;
+	while (tetri[i] != '\0')
+	{
+		if (tetri[i] != '.' && tetri[i] != '#' && tetri[i] != '\n')
+			return (0);
+		while (tetri[i] == '.' || tetri[i] == '#')
+		{
+			line_width++;
+			i++;
+		}
+		if (tetri[i] == '\n')
+		{
+			if (line_width != 4 && tetri[i + 1] != '\0')
+				return (0);
+			line_width = 0;
+			i++;
+		}
+	}
+	return (1);
+}
+
+int			ft_check_tetri(char *tetri)
 {
 	int		i;
 	int		nb;
@@ -30,7 +57,7 @@ int		ft_check_tetri(char *tetri)
 	return (1);
 }
 
-int		ft_check_tetri_valid(char *tetri)
+int			ft_check_tetri_valid(char *tetri)
 {
 	int		i;
 	int		j;
@@ -57,10 +84,10 @@ int		ft_check_tetri_valid(char *tetri)
 	return (1);
 }
 
-int		ft_check(char *tetri)
+int			ft_check(char *tetri)
 {
-	//if (!(ft_check_char(tetri)))
-	//	return (-1);
+	if (!(ft_check_char(tetri)))
+		return (0);
 	if (!(ft_check_tetri(tetri)))
 		return (0);
 	if (!(ft_check_tetri_valid(tetri)))
@@ -86,6 +113,11 @@ t_list		*ft_read_file(int fd, t_list **list)
 		}
 		tmp = ft_lstnew(buf, ft_strlen(buf));
 		ft_lstadd(list, tmp);
+	}
+	if (tmp->content_size != 20)
+	{
+		ft_putendl_fd("Not a valid file", 2);
+		return (NULL);
 	}
 	return (tmp);
 }

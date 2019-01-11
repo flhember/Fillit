@@ -6,7 +6,7 @@
 /*   By: flhember <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 16:03:11 by flhember          #+#    #+#             */
-/*   Updated: 2019/01/09 14:55:56 by flhember         ###   ########.fr       */
+/*   Updated: 2019/01/11 10:22:57 by flhember         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ int		main(int argc, char **argv)
 		close(fd);
 		return (1);
 	}
-//	ft_print_list(tetrie);
 	//ft reso;
 	close(fd);
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: flhember <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/09 15:20:46 by flhember          #+#    #+#             */
-/*   Updated: 2019/01/09 15:33:40 by flhember         ###   ########.fr       */
+/*   Updated: 2019/01/11 10:17:54 by flhember         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 
 // marche pas
 
-void	ft_lstaddrev(t_list *alst, t_list *new)
+void	ft_lstaddrev(t_list **alst, t_list *new)
 {
-	while (alst->next)
-		alst = alst->next;
-	alst->next = new;
+	while ((*alst)->next)
+		*(alst) = (*alst)->next;
+	(*alst) = new;
+	new->next = NULL;
 }

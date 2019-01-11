@@ -6,7 +6,7 @@
 /*   By: flhember <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 18:13:18 by flhember          #+#    #+#             */
-/*   Updated: 2019/01/09 16:53:46 by flhember         ###   ########.fr       */
+/*   Updated: 2019/01/11 10:02:31 by flhember         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,6 @@ char				*ft_strjoinfree(char *s1, char *s2, int n);
 void				ft_swap(int *a, int *b);
 int					ft_str_is_lowercase(char *str);
 int					ft_str_is_uppercase(char *str);
-void				ft_lstaddrev(t_list *alst, t_list *new);
+void				ft_lstaddrev(t_list **alst, t_list *new);
 
 #endif
