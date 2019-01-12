@@ -6,21 +6,19 @@
 /*   By: flhember <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/17 16:33:49 by flhember          #+#    #+#             */
-/*   Updated: 2019/01/11 13:44:55 by brpinto          ###   ########.fr       */
+/*   Updated: 2019/01/11 15:51:24 by flhember         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fillit.h"
 
-int		ft_check_char(char *tetri, int *grid_height)
+int			ft_check_char(char *tetri)
 {
 	int		i;
 	int		line_width;
-	int		tmp;
 
 	i = 0;
 	line_width = 0;
-	tmp = 0;
 	while (tetri[i] != '\0')
 	{
 		if (tetri[i] != '.' && tetri[i] != '#' && tetri[i] != '\n')
@@ -35,62 +33,93 @@ int		ft_check_char(char *tetri, int *grid_height)
 			if (line_width != 4 && tetri[i + 1] != '\0')
 				return (0);
 			line_width = 0;
-			tmp++;
 			i++;
 		}
 	}
-	*grid_height = tmp;
-	if (tmp != 5)
-		return (0);
 	return (1);
 }
 
-/* int		ft_check_tetri(char *tetri)
+int			ft_check_tetri(char *tetri)
 {
 	int		i;
+	int		nb;
 
+	nb = 0;
 	i = 0;
-	while (tetrie[i] != '#')
+	while (tetri[i])
 	{
+		if (tetri[i] == '#')
+			nb++;
 		i++;
-
 	}
-
-	return (0);
-} */
-
-int		ft_check_tetri(char *tetri, int *grid_height)
-{
-	if (!(ft_check_char(tetri, grid_height)))
+	if (nb != 4)
 		return (0);
-	//if (!(ft_check_tetri(tetri)))
-	//	return (0);
 	return (1);
 }
 
-t_list		*ft_read_file(int fd, t_list **list)
+int			ft_check_tetri_valid(char *tetri)
 {
-	int		ret;
-	char	buff[21];
-	t_list	*tmp;
-	int grid_height;
+	int		i;
+	int		j;
 
+	j = 0;
+	i = 0;
+	while (tetri[i])
+	{
+		if (tetri[i] == '#')
+		{
+			if (tetri[i - 1] == '#')
+				j++;
+			if (tetri[i - 5] == '#')
+				j++;
+			if (tetri[i + 1] == '#')
+				j++;
+			if (tetri[i + 5] == '#')
+				j++;
+		}
+		i++;
+	}
+	if (j < 6)
+		return (0);
+	return (1);
+}
+
+int			ft_check(char *tetri)
+{
+	if (!(ft_check_char(tetri)))
+		return (0);
+	if (!(ft_check_tetri(tetri)))
+		return (0);
+	if (!(ft_check_tetri_valid(tetri)))
+		return (0);
+	return (1);
+}
+
+t_piece		*ft_read_file(int fd, t_piece **list)
+{
+	int	ret;
+	char	buff[TETRI_SIZE];
+	t_piece	*tmp;
+	int	alpha;
+
+	alpha = 0;
 	tmp = *list;
-	tmp = ft_lstnew("\0", 1);
-	grid_height = 0;
 	while ((ret = read(fd, buff, 21)))
 	{
 		buff[ret] = '\0';
-		if ((!ft_check_tetri(buff, &grid_height)))
+		if ((!ft_check(buff)))
 		{
-			if (ft_strlen(buff) != 20 && grid_height != 4)
-			{
-				ft_putendl_fd("Not a valid file", 2);
-				return (NULL);
-			}
+			ft_putendl_fd("Not a valid file", 2);
+			return (NULL);
 		}
-		tmp = ft_lstnew(buff, ft_strlen(buff));
-		ft_lstadd(list, tmp);
+		tmp = ft_lstnewtetri(buff, ft_strlen(buff), alpha);
+		ft_lstaddtetri(list, tmp);
+		alpha++;
+	}
+	if (tmp->content_size != (TETRI_SIZE - 1))
+	{
+		ft_putendl_fd("Not a valid file", 2);
+		return (NULL);
 	}
 	return (tmp);
 }
