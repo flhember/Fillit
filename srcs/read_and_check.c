@@ -12,6 +12,12 @@
 
 #include "../includes/fillit.h"
 
+/*
+ ** Vérifie le format du fichier d'entrée.
+ ** Return 0 s'il y a autre chose que des "." || "#" || trop ou trop peu \n
+ ** Return 1 si le format du fichier est valide
+*/
+
 int			ft_check_char(char *tetri)
 {
 	int		i;
@@ -39,6 +45,11 @@ int			ft_check_char(char *tetri)
 	return (1);
 }
 
+/*
+ ** Check que le nombre de tétri est bien compris entre
+ ** 1 et 26
+*/ 
+
 int			ft_check_tetri(char *tetri)
 {
 	int		i;
@@ -56,6 +67,11 @@ int			ft_check_tetri(char *tetri)
 		return (0);
 	return (1);
 }
+
+/*
+ ** Check la validité des tetri
+ ** Compte le nombre que le nombre de connexion est de 6 min
+*/
 
 int			ft_check_tetri_valid(char *tetri)
 {
