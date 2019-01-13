@@ -6,7 +6,7 @@
 /*   By: flhember <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/17 16:41:34 by flhember          #+#    #+#             */
-/*   Updated: 2019/01/11 15:17:12 by flhember         ###   ########.fr       */
+/*   Updated: 2019/01/13 17:33:29 by brpinto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	ft_lstaddtetri(t_piece **alst, t_piece *new)
 {
+		orintf("ok\n");
 	new->next = *alst;
 	*alst = new;
 }

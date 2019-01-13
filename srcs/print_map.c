@@ -6,7 +6,7 @@
 /*   By: flhember <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/11 11:26:19 by flhember          #+#    #+#             */
-/*   Updated: 2019/01/13 14:07:44 by brpinto          ###   ########.fr       */
+/*   Updated: 2019/01/13 16:51:56 by brpinto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	search_replace(t_piece **tetri)
 				((char*)(tmp)->content)[i] = tmp->alpha;
 			i++;
 		}
+		printf("ok\n");
 		tmp = tmp->next;
 	}
 }
