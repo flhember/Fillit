@@ -1,47 +1,28 @@
-width = 1
-width = 2
-width = 3
-width reset = 0
-width = 1
-width = 2
-width = 3
-width = 4
-width = 1
-width = 2
-width = 3
-width reset = 0
-width reset = 0
-width = 1
-width = 2
-width = 3
-width reset = 0
-width = 1
-width = 2
-width = 3
-width = 4
-width = 1
-width = 2
-width = 3
-width reset = 0
-width reset = 0
-width = 1
-width = 2
-width = 3
-width reset = 0
-width = 1
-width = 2
-width = 3
-width = 4
-width = 1
-width = 2
-width = 3
-width reset = 0
-width reset = 0
-width = 1
-width = 2
-width = 3
-width reset = 0
-width = 1
-width = 2
-width = 3
-width = 4
+[
+....
+....
+.##.
+.##.
+
+] size: D20  -->  [
+....
+.#..
+.#..
+.##.
+
+
+] size: C21  -->  [
+#...
+#...
+#...
+#...
+
+
+] size: B21  -->  [
+....
+..#.
+.###
+....
+
+
+] size: A21  -->  [

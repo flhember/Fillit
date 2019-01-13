@@ -6,7 +6,7 @@
 /*   By: flhember <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/17 16:33:49 by flhember          #+#    #+#             */
-/*   Updated: 2019/01/11 15:51:24 by flhember         ###   ########.fr       */
+/*   Updated: 2019/01/13 16:32:01 by brpinto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
  ** Vérifie le format du fichier d'entrée.
  ** Return 0 s'il y a autre chose que des "." || "#" || trop ou trop peu \n
  ** Return 1 si le format du fichier est valide
-*/
+ */
 
 int			ft_check_char(char *tetri)
 {
@@ -48,15 +48,17 @@ int			ft_check_char(char *tetri)
 /*
  ** Check que le nombre de tétri est bien compris entre
  ** 1 et 26
-*/ 
+ */ 
 
 int			ft_check_tetri(char *tetri)
 {
 	int		i;
 	int		nb;
-
+	
 	nb = 0;
-	i = 0;
+	i = 0;	
+	if (!(ft_check_char(tetri)))
+		return (0);
 	while (tetri[i])
 	{
 		if (tetri[i] == '#')
@@ -71,7 +73,7 @@ int			ft_check_tetri(char *tetri)
 /*
  ** Check la validité des tetri
  ** Compte le nombre que le nombre de connexion est de 6 min
-*/
+ */
 
 int			ft_check_tetri_valid(char *tetri)
 {
@@ -80,6 +82,8 @@ int			ft_check_tetri_valid(char *tetri)
 
 	j = 0;
 	i = 0;
+	if (!(ft_check_tetri(tetri)))
+		return (0);
 	while (tetri[i])
 	{
 		if (tetri[i] == '#')
@@ -100,17 +104,6 @@ int			ft_check_tetri_valid(char *tetri)
 	return (1);
 }
 
-int			ft_check(char *tetri)
-{
-	if (!(ft_check_char(tetri)))
-		return (0);
-	if (!(ft_check_tetri(tetri)))
-		return (0);
-	if (!(ft_check_tetri_valid(tetri)))
-		return (0);
-	return (1);
-}
-
 t_piece		*ft_read_file(int fd, t_piece **list)
 {
 	int	ret;
@@ -123,7 +116,7 @@ t_piece		*ft_read_file(int fd, t_piece **list)
 	while ((ret = read(fd, buff, 21)))
 	{
 		buff[ret] = '\0';
-		if ((!ft_check(buff)))
+		if ((!ft_check_tetri_valid(buff)))
 		{
 			ft_putendl_fd("Not a valid file", 2);
 			return (NULL);
@@ -138,4 +131,23 @@ t_piece		*ft_read_file(int fd, t_piece **list)
 		return (NULL);
 	}
 	return (tmp);
+}
+
+t_piece		*get_tetri(const char *file)
+{
+	int			fd;
+	t_piece		*tetri;
+
+	if ((fd = open(file, O_RDONLY)) == -1)
+	{
+		ft_putendl_fd("open() failed.", 2);
+		return (NULL);
+	}
+	if (!(tetri = ft_read_file(fd, &tetri)))
+	{
+		close(fd);
+		return (NULL);
+	}
+	close(fd);
+	return (tetri);
 }
