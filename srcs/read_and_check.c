@@ -6,7 +6,7 @@
 /*   By: flhember <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/17 16:33:49 by flhember          #+#    #+#             */
-/*   Updated: 2019/01/13 17:15:59 by brpinto          ###   ########.fr       */
+/*   Updated: 2019/01/13 17:44:04 by brpinto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,10 @@ int			ft_check_tetri_valid(char *tetri)
 	return (1);
 }
 
+/*
+ ** Ajoute un nouveau maillon a la liste si le tetri est valide
+*/
+
 t_piece		*ft_read_file(int fd, t_piece **list)
 {
 	int	ret;
@@ -132,6 +136,11 @@ t_piece		*ft_read_file(int fd, t_piece **list)
 	}
 	return (tmp);
 }
+
+/*
+ ** Ouvre le fichier et renvoie une liste si le fichier est valide
+ ** puis le ferme
+*/
 
 t_piece		*get_tetri(const char *file)
 {
