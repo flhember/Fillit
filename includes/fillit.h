@@ -6,7 +6,7 @@
 /*   By: flhember <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 15:56:01 by flhember          #+#    #+#             */
-/*   Updated: 2019/01/13 16:35:42 by brpinto          ###   ########.fr       */
+/*   Updated: 2019/01/14 14:06:26 by brpinto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ typedef struct		s_piece
 	struct	s_piece	*next;
 }					t_piece;
 
-t_piece				*ft_read_file(int fd, t_piece **list);
 void				ft_lstaddtetri(t_piece **alst, t_piece *new);
 t_piece				*ft_lstnewtetri(void const *content, size_t content_size, int nb);
 void				search_replace(t_piece **tetri);
