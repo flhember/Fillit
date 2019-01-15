@@ -6,7 +6,11 @@
 /*   By: flhember <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 18:13:18 by flhember          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2019/01/11 10:46:47 by flhember         ###   ########.fr       */
+=======
+/*   Updated: 2019/01/10 08:13:43 by brpinto          ###   ########.fr       */
+>>>>>>> bruno
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +91,12 @@ char				*ft_strjoinfree(char *s1, char *s2, int n);
 void				ft_swap(int *a, int *b);
 int					ft_str_is_lowercase(char *str);
 int					ft_str_is_uppercase(char *str);
+<<<<<<< HEAD
 void				ft_lstaddrev(t_list **alst, t_list *new);
+=======
+void				ft_lstaddrev(t_list *alst, t_list *new);
+int					get_next_line(const int fd, char **line);
+char				*ft_strjoin_free(char const *s1, char const *s2, int i);
+>>>>>>> bruno
 
 #endif

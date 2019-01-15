@@ -6,16 +6,15 @@
 /*   By: flhember <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 15:56:01 by flhember          #+#    #+#             */
-/*   Updated: 2019/01/15 16:34:30 by flhember         ###   ########.fr       */
+/*   Updated: 2019/01/15 17:43:35 by flhember         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FILLIT_H
 # define FILLIT_H
 
-# include "../Libft/includes/libft.h"
-# include <fcntl.h>
-# include <stdio.h> // a retirer !!!!!!!!!!!!!!!!!
+# include <stdio.h> // a retirer !!!!!!!!!!!!!!!!
+# include <stdlib.h>
 
 typedef struct		s_piece
 {
@@ -28,7 +27,7 @@ typedef struct		s_piece
 
 }					t_piece;
 
-typedef	struct		s_map
+typedef struct		s_map
 {
 	char			**map;
 	int				xmax;
