@@ -6,7 +6,7 @@
 #    By: flhember <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/11 15:51:59 by flhember          #+#    #+#              #
-#    Updated: 2019/01/16 09:53:30 by flhember         ###   ########.fr        #
+#    Updated: 2019/01/16 13:23:10 by flhember         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,6 @@ INC_PATH = ./includes/
 SRC_FILES = main.c 				\
 			read_and_check.c	\
 			more_ft.c			\
-			print_map.c			\
 			set_map.c			\
 			backtracking.c
 
