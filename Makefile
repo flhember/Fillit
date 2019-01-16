@@ -6,7 +6,7 @@
 #    By: flhember <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/11 15:51:59 by flhember          #+#    #+#              #
-#    Updated: 2019/01/11 11:45:26 by flhember         ###   ########.fr        #
+#    Updated: 2019/01/16 09:53:30 by flhember         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,8 @@ SRC_FILES = main.c 				\
 			read_and_check.c	\
 			more_ft.c			\
 			print_map.c			\
-			ft_test.c
+			set_map.c			\
+			backtracking.c
 
 INC_FILES = fillit.h
 

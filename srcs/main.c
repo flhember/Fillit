@@ -6,7 +6,7 @@
 /*   By: flhember <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 16:03:11 by flhember          #+#    #+#             */
-/*   Updated: 2019/01/11 15:23:22 by flhember         ###   ########.fr       */
+/*   Updated: 2019/01/16 10:28:38 by flhember         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,7 @@ int		main(int argc, char **argv)
 		close(fd);
 		return (1);
 	}
-	ft_print_map(tetri);
-	search_replace(&tetri);
-	ft_print_map(tetri);
+	ft_resolution(&tetri);
 	close(fd);
 	return (0);
 }

@@ -6,13 +6,13 @@
 /*   By: flhember <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/15 17:45:14 by flhember          #+#    #+#             */
-/*   Updated: 2019/01/15 18:13:30 by flhember         ###   ########.fr       */
+/*   Updated: 2019/01/16 10:53:24 by flhember         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fillit.h"
 
-int		ft_check_piece(int x, int y, t_map *map, t_piece *piece)
+/*int		ft_check_piece(int x, int y, t_map *map, t_piece *piece)
 {
 	int		i;
 
@@ -34,7 +34,7 @@ int		ft_check_piece(int x, int y, t_map *map, t_piece *piece)
 			i++;
 		}
 	}
-	return (1)
+	return (1);
 }
 
 int		ft_delete(t_piece *piece, t_map map)
@@ -69,5 +69,25 @@ int		ft_backtracking(t_piece piece, t_map map, int i)
 		}
 		y++;
 	}
+	return (0);
+}*/
+
+int		ft_resolution(t_piece **tetri)
+{
+	int		xmax;
+	int		nb_piece;
+	t_map	*map;
+	t_piece *piece;
+
+	nb_piece = 0;
+	piece = *tetri;
+	while (piece)
+	{
+		nb_piece++;
+		piece = piece->next;
+	}
+	xmax = ft_sqrt_map(nb_piece * 4);
+	map = ft_set_map(xmax);
+	ft_print_map(map);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: flhember <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/17 16:41:34 by flhember          #+#    #+#             */
-/*   Updated: 2019/01/15 16:43:12 by flhember         ###   ########.fr       */
+/*   Updated: 2019/01/16 11:16:38 by flhember         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,26 @@ void	ft_lstaddtetri(t_piece **alst, t_piece *new)
 	*alst = new;
 }
 
-t_piece	*ft_lstnewtetri(void const *content, size_t content_size, int nb)
+/*t_piece	*ft_filling_piece(char *buf, t_piece **new)
+{
+	t_piece *tmp;
+	int		i;
+	int		j;
+
+	i = 0;
+	j = 0;
+	tmp = *new;
+
+
+}*/
+
+
+t_piece	*ft_lstnewtetri(char *content, size_t content_size, int nb)
 {
 	t_piece	*new;
+	int		i;
 
+	i = 0;
 	new = NULL;
 	if (!(new = (t_piece*)malloc(sizeof(t_piece))))
 		return (NULL);
@@ -33,9 +49,15 @@ t_piece	*ft_lstnewtetri(void const *content, size_t content_size, int nb)
 	}
 	else
 	{
-		if (!(new->content = (void*)malloc(sizeof(void) * content_size)))
+		if (!(new->content = (char**)malloc(sizeof(char*) * 4)))
 			return (NULL);
-		ft_memcpy(new->content, content, content_size);
+		while (i < 4)
+		{
+			if (!(new->content[i] = (char*)malloc(sizeof(char) * 4)))
+				return (NULL);
+				i++;
+		}
+		new->content[i] = NULL;
 		new->content_size = content_size;
 		new->alpha = 65 + nb;
 	}
