@@ -5,13 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: flhember <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-<<<<<<< HEAD
 /*   Created: 2018/12/11 15:56:01 by flhember          #+#    #+#             */
-/*   Updated: 2019/01/14 14:06:26 by brpinto          ###   ########.fr       */
-=======
-/*   Created: 2019/01/16 09:49:13 by flhember          #+#    #+#             */
-/*   Updated: 2019/01/16 11:17:55 by flhember         ###   ########.fr       */
->>>>>>> Florian
+/*   Updated: 2019/01/14 14:06:26 by brpinto          ###   ########.fr       */=======
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,25 +21,16 @@
 
 typedef struct		s_piece
 {
-<<<<<<< HEAD
-	char			*content;
-=======
 	char			**content;
->>>>>>> Florian
 	size_t			content_size;
 	int				alpha;
 	int				x;
 	int				y;
+	int				width;
+	int				height;
 	struct	s_piece	*next;
 }					t_piece;
 
-<<<<<<< HEAD
-void				ft_lstaddtetri(t_piece **alst, t_piece *new);
-t_piece				*ft_lstnewtetri(void const *content, size_t content_size, int nb);
-void				search_replace(t_piece **tetri);
-void				ft_print_map(t_piece *list);
-t_piece				*get_tetri(const char *file);
-=======
 typedef	struct		s_map
 {
 	char			**map;
@@ -61,5 +47,4 @@ t_map				*ft_set_map(int xmax);
 void				ft_print_map(t_map *map);
 
 
->>>>>>> Florian
 #endif

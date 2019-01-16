@@ -3,16 +3,13 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: flhember <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: brpinto <brpinto@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/11 15:51:59 by flhember          #+#    #+#              #
-<<<<<<< HEAD
-#    Updated: 2019/01/13 16:20:15 by brpinto          ###   ########.fr        #
-=======
-#    Updated: 2019/01/16 09:53:30 by flhember         ###   ########.fr        #
->>>>>>> Florian
+#    Updated: 2019/01/16 15:00:36 by brpinto          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
 
 NAME = fillit
 CC = clang
@@ -25,8 +22,7 @@ INC_PATH = ./includes/
 
 SRC_FILES = main.c 				\
 			read_and_check.c	\
-			more_ft.c			\
-			print_map.c			\
+			init_tetri.c		\
 			set_map.c			\
 			backtracking.c
 
