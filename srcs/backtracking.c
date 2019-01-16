@@ -6,19 +6,19 @@
 /*   By: flhember <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/15 17:45:14 by flhember          #+#    #+#             */
-/*   Updated: 2019/01/16 14:31:50 by flhember         ###   ########.fr       */
+/*   Updated: 2019/01/16 17:26:32 by flhember         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fillit.h"
 
-/*int		ft_check_piece(int x, int y, t_map *map, t_piece *piece)
+int		ft_check_piece(int x, int y, t_map *map, t_piece *piece)
 {
 	int		i;
+	int		j;
 
+	j = 0;
 	i = 0;
-	while (piece->content[i] != '#')
-		i++;
 	while (y < map->ymax)
 	{
 		x = 0;
@@ -34,14 +34,12 @@
 			i++;
 		}
 	}
+
 	return (1);
 }
 
-int		ft_delete(t_piece *piece, t_map map)
+int		ft_add_remove_piece(t_piece *piece, t_map map, char alpha)
 {
-	int		i;
-
-	i = 0;
 
 
 
@@ -70,7 +68,7 @@ int		ft_backtracking(t_piece piece, t_map map, int i)
 		y++;
 	}
 	return (0);
-}*/
+}
 
 int		ft_resolution(t_piece **tetri)
 {
