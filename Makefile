@@ -6,7 +6,7 @@
 #    By: flhember <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/11 15:51:59 by flhember          #+#    #+#              #
-#    Updated: 2019/01/16 14:36:37 by flhember         ###   ########.fr        #
+#    Updated: 2019/01/16 15:55:22 by brpinto          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,8 @@ SRC_FILES = main.c 				\
 			read_and_check.c	\
 			init_tetri.c		\
 			set_map.c			\
-			backtracking.c
+			backtracking.c		\
+			reset.c
 
 INC_FILES = fillit.h
 

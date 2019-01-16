@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   more_ft.c                                          :+:      :+:    :+:   */
+/*   init_tetri.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flhember <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: brpinto <brpinto@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/17 16:41:34 by flhember          #+#    #+#             */
-/*   Updated: 2019/01/16 14:34:30 by flhember         ###   ########.fr       */
+/*   Updated: 2019/01/16 16:49:44 by brpinto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ t_piece	*ft_lstnewtetri(char *content, size_t content_size, int nb)
 	new = NULL;
 	if (!(new = (t_piece*)malloc(sizeof(t_piece))))
 		return (NULL);
-	new->content = ft_strsplit(content, '\n');
+	new->content = reset(ft_strsplit(content, '\n'));
 	new->content_size = content_size;
 	new->alpha = 65 + nb;
 	new->next = NULL;
