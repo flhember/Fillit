@@ -3,30 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   read_and_check.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flhember <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: brpinto <brpinto@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/17 16:33:49 by flhember          #+#    #+#             */
-/*   Updated: 2019/01/14 15:04:50 by brpinto          ###   ########.fr       */
+/*   Updated: 2019/01/16 14:45:05 by brpinto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fillit.h"
 
-/*
- ** Vérifie le format du fichier d'entrée.
- ** Return 0 s'il y a autre chose que des "." || "#" || trop ou trop peu \n
- ** Return 1 si le format du fichier est valide
- */
-
-int			ft_check_char(char *tetri, int *grid_height)
+int			ft_check_char(char *tetri)
 {
 	int		i;
 	int		line_width;
-	int		tmp;
 
 	i = 0;
 	line_width = 0;
-	tmp = 0;
 	while (tetri[i] != '\0')
 	{
 		if (tetri[i] != '.' && tetri[i] != '#' && tetri[i] != '\n')
@@ -38,22 +30,13 @@ int			ft_check_char(char *tetri, int *grid_height)
 			if (line_width != 4 && tetri[i + 1] != '\0')
 				return (0);
 			line_width = 0;
-			tmp++;
+			i++;
 		}
-		i++;
 	}
-	*grid_height = tmp;
-	if (tmp != 5)
-		return (0);
 	return (1);
 }
 
-/*
- ** Check que le nombre de tétri est bien compris entre
- ** 1 et 26
- */ 
-
-int			ft_check_tetri(char *tetri, int *grid_height)
+int			ft_check_tetri(char *tetri)
 {
 	int		i;
 	int		nb;
@@ -114,19 +97,30 @@ int			ft_check_tetri_valid(char *tetri, int *grid_height)
  ** Ajoute un nouveau maillon a la liste si le tetri est valide
  */
 
+int			ft_check(char *tetri)
+{
+	if (!(ft_check_char(tetri)))
+		return (0);
+	if (!(ft_check_tetri(tetri)))
+		return (0);
+	if (!(ft_check_tetri_valid(tetri)))
+		return (0);
+	return (1);
+}
+
 t_piece		*ft_read_file(int fd, t_piece **list, int *grid_height)
 {
-	int	ret;
-	char	buff[TETRI_SIZE];
+	int		ret;
+	char	buf[21];
 	t_piece	*tmp;
-	int	alpha;
+	int		alpha;
 
 	alpha = 0;
 	tmp = *list;
-	while ((ret = read(fd, buff, 21)))
+	while ((ret = read(fd, buf, 21)))
 	{
-		buff[ret] = '\0';
-		if ((!ft_check_tetri_valid(buff, grid_height)))
+		buf[ret] = '\0';
+		if ((!ft_check(buf)))
 		{
 			ft_putendl_fd("Not a valid file", 2);
 			return (NULL);
