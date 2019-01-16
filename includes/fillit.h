@@ -6,7 +6,7 @@
 /*   By: flhember <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/16 09:49:13 by flhember          #+#    #+#             */
-/*   Updated: 2019/01/16 14:05:46 by brpinto          ###   ########.fr       */
+/*   Updated: 2019/01/16 17:45:32 by flhember         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,6 @@ typedef struct		s_piece
 	int				alpha;
 	int				x;
 	int				y;
-	int				width;
-	int				height;
 	struct	s_piece	*next;
 
 }					t_piece;
@@ -44,6 +42,7 @@ int					ft_resolution(t_piece **tetri);
 int					ft_sqrt_map(int	nb);
 t_map				*ft_set_map(int xmax);
 void				ft_print_map(t_map *map);
+char				**reset(char **content);
 
 
 #endif
