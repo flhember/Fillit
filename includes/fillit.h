@@ -6,7 +6,7 @@
 /*   By: flhember <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/16 09:49:13 by flhember          #+#    #+#             */
-/*   Updated: 2019/01/16 17:45:32 by flhember         ###   ########.fr       */
+/*   Updated: 2019/01/16 18:01:40 by flhember         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,5 @@ int					ft_sqrt_map(int	nb);
 t_map				*ft_set_map(int xmax);
 void				ft_print_map(t_map *map);
 char				**reset(char **content);
-
 
 #endif

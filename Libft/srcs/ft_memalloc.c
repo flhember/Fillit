@@ -1,33 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin_free.c                                  :+:      :+:    :+:   */
+/*   ft_memalloc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brpinto <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: flhember <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/30 17:40:53 by brpinto           #+#    #+#             */
-/*   Updated: 2018/12/29 16:39:13 by brpinto          ###   ########.fr       */
+/*   Created: 2018/11/13 18:06:32 by flhember          #+#    #+#             */
+/*   Updated: 2018/11/23 14:58:32 by flhember         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin_free(char const *s1, char const *s2, int i)
+void	*ft_memalloc(size_t size)
 {
-	char *str;
+	void	*mem;
 
-	str = NULL;
-	if (!s1 || !s2 || !i)
+	if (!(mem = (void *)malloc(sizeof(void) * size)))
 		return (NULL);
-	str = ft_strjoin(s1, s2);
-	if (i == 1)
-		free((char*)s1);
-	else if (i == 2)
-		free((char*)s2);
-	else if (i == 3)
-	{
-		free((char*)s1);
-		free((char*)s2);
-	}
-	return (str);
+	ft_bzero(mem, size);
+	return (mem);
 }
