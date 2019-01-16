@@ -6,7 +6,7 @@
 /*   By: flhember <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/17 16:33:49 by flhember          #+#    #+#             */
-/*   Updated: 2019/01/16 10:57:10 by flhember         ###   ########.fr       */
+/*   Updated: 2019/01/16 12:16:25 by brpinto          ###   ########.fr       */
 /*   Updated: 2019/01/11 15:47:04 by flhember         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
@@ -44,6 +44,8 @@ int			ft_check_tetri(char *tetri)
 {
 	int		i;
 	int		nb;
+	int		height;
+	int		width;
 
 	nb = 0;
 	i = 0;

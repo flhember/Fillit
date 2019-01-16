@@ -6,7 +6,7 @@
 /*   By: flhember <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/17 16:41:34 by flhember          #+#    #+#             */
-/*   Updated: 2019/01/16 11:16:38 by flhember         ###   ########.fr       */
+/*   Updated: 2019/01/16 14:24:44 by brpinto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ t_piece	*ft_lstnewtetri(char *content, size_t content_size, int nb)
 				return (NULL);
 				i++;
 		}
-		new->content[i] = NULL;
+		new->content = NULL;
 		new->content_size = content_size;
 		new->alpha = 65 + nb;
 	}

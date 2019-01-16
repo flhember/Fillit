@@ -6,7 +6,7 @@
 /*   By: flhember <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/16 09:49:13 by flhember          #+#    #+#             */
-/*   Updated: 2019/01/16 11:17:55 by flhember         ###   ########.fr       */
+/*   Updated: 2019/01/16 14:05:46 by brpinto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ typedef struct		s_piece
 	int				alpha;
 	int				x;
 	int				y;
+	int				width;
+	int				height;
 	struct	s_piece	*next;
 
 }					t_piece;
