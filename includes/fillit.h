@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fillit.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: flhember <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: brpinto <brpinto@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/16 09:49:13 by flhember          #+#    #+#             */
-/*   Updated: 2019/01/16 15:55:07 by brpinto          ###   ########.fr       */
+/*   Created: 2018/12/11 15:56:01 by flhember          #+#    #+#             */
+/*   Updated: 2019/01/16 17:33:01 by brpinto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include "../Libft/includes/libft.h"
 # include <fcntl.h>
 # include <stdio.h> // a retirer !!!!!!!!!!!!!!!!!
+
+# define TETRI_SIZE 21
 
 typedef struct		s_piece
 {
@@ -27,7 +29,6 @@ typedef struct		s_piece
 	int				width;
 	int				height;
 	struct	s_piece	*next;
-
 }					t_piece;
 
 typedef	struct		s_map

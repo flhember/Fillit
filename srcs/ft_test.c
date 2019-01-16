@@ -2,6 +2,8 @@
 
 void	ft_print_map(t_piece *list)
 {
+	if (!list)
+		return ;
 	while (list)
 	{
 		ft_putstr("[\n");
