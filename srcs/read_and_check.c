@@ -122,5 +122,6 @@ t_piece		*ft_read_file(int fd, t_piece **list)
 		ft_putendl_fd("error", 2);
 		return (NULL);
 	}
+	ft_lstrev(&tmp);
 	return (tmp);
 }

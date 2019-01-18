@@ -45,5 +45,5 @@ t_map				*ft_set_map(int xmax);
 void				ft_print_map(t_map *map);
 char				**reset(char **content);
 int					get_xmin(char **tetri);
-void				ft_lstrev(t_piece *lst);
+void				ft_lstrev(t_piece **lst);
 #endif

@@ -12,32 +12,25 @@
 
 #include "../includes/fillit.h"
 
-/*void	ft_lstrev(t_piece *lst)
+void	ft_lstrev(t_piece **lst)
 {
-	t_piece *current;
-	t_piece *to_do;
-	t_piece *tmp;
-	
-	current = lst;
-	current->next = NULL;
-	to_do = lst->next;
-	while (current)
+	t_piece *prev  = NULL;
+	t_piece *current = *lst;
+	t_piece *next;
+	while (current != NULL)
 	{
-		tmp = to_do;
-		to_do = to_do->next;
-		tmp = current;
-		current = tmp;
+		next  = current->next;
+		current->next = prev;
+		prev = current;
+		current = next;
 	}
-}*/
+	*lst = prev;
+}
 
 void	ft_lstaddtetri(t_piece **alst, t_piece *new)
 {
-	if ((*alst)->next != NULL)
-	{
-		while ((*alst)->next != NULL)
-			*alst = (*alst)->next;
-	}
-	(*alst)->next = new;
+	new->next = *alst;
+	*alst = new;
 }
 
 int		get_tetri_width(char **tetri)
