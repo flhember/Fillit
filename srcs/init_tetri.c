@@ -6,7 +6,7 @@
 /*   By: brpinto <brpinto@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/17 16:41:34 by flhember          #+#    #+#             */
-/*   Updated: 2019/01/18 15:08:46 by flhember         ###   ########.fr       */
+/*   Updated: 2019/01/18 15:57:40 by flhember         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,15 @@
 
 void	ft_lstrev(t_piece **lst)
 {
-	t_piece *prev  = NULL;
-	t_piece *current = *lst;
+	t_piece *prev;
+	t_piece *current;
 	t_piece *next;
-	while (current != NULL)
+	
+	prev = NULL;
+	current = *lst;
+	while (current)
 	{
-		next  = current->next;
+		next = current->next;
 		current->next = prev;
 		prev = current;
 		current = next;
@@ -55,7 +58,6 @@ int		get_tetri_width(char **tetri)
 		i++;
 	}
 	width = xmax + 1;
-	//printf("width = %d\n", width);
 	return (width);
 }
 
@@ -82,7 +84,6 @@ int		get_tetri_height(char **tetri)
 			height++;
 		i++;
 	}
-	//printf("height = %d\n", height);
 	return (height);
 }
 

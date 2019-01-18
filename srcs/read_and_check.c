@@ -6,7 +6,7 @@
 /*   By: flhember <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/17 16:33:49 by flhember          #+#    #+#             */
-/*   Updated: 2019/01/18 14:44:07 by flhember         ###   ########.fr       */
+/*   Updated: 2019/01/18 16:16:59 by flhember         ###   ########.fr       */
 /*   Updated: 2019/01/11 15:47:04 by flhember         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
@@ -110,7 +110,7 @@ t_piece		*ft_read_file(int fd, t_piece **list)
 		buf[ret] = '\0';
 		if ((!ft_check(buf)))
 		{
-			ft_putendl_fd("error", 2);
+			ft_putendl_fd("error", 1);
 			return (NULL);
 		}
 		tmp = ft_lstnewtetri(buf, ft_strlen(buf), alpha);
@@ -119,9 +119,8 @@ t_piece		*ft_read_file(int fd, t_piece **list)
 	}
 	if (tmp->content_size != 20)
 	{
-		ft_putendl_fd("error", 2);
+		ft_putendl_fd("error", 1);
 		return (NULL);
 	}
-	ft_lstrev(&tmp);
 	return (tmp);
 }

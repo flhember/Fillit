@@ -47,7 +47,7 @@ $(LIB):
 	@make -C $(LIB_PATH)
 
 $(NAME): $(LIB) $(OBJ_PATH) $(OBJ_EXEC)
-	@$(CC) $(FLAGS) -fsanitize=address -g3 $(OBJ_EXEC) $(LIB) -o $(NAME) -I $(INC_FILES) -I $(LIB)
+	@$(CC) $(FLAGS) $(OBJ_EXEC) $(LIB) -o $(NAME) -I $(INC_FILES) -I $(LIB)
 	@echo "\033[1;32m$(notdir $(NAME))\033[1;0m\033[32m created.\033[0m"
 
 clean:

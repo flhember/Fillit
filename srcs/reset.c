@@ -6,7 +6,7 @@
 /*   By: brpinto <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/16 14:01:51 by brpinto           #+#    #+#             */
-/*   Updated: 2019/01/18 14:03:07 by flhember         ###   ########.fr       */
+/*   Updated: 2019/01/18 15:58:56 by flhember         ###   ########.fr       */
 /*   Updated: 2019/01/17 16:11:36 by brpinto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
@@ -78,16 +78,7 @@ char **reset(char **tetri)
 			if (tetri[i][j] == '#')
 			{
 				if (ymin == 0 && xmin == 0)
-				{
-					while (tetri[i])
-					{
-						ft_putstr(tetri[i]);
-						ft_putchar('\n');
-						i++;
-					}
-					ft_putchar('\n');
 					return (tetri);
-				}
 				else
 				{
 
@@ -99,13 +90,5 @@ char **reset(char **tetri)
 		}
 		i++;
 	}
-	/*i = 0;
-	while (tetri[i])
-	{
-		ft_putstr(tetri[i]);
-		ft_putchar('\n');
-		i++;
-	}
-	ft_putchar('\n');*/
 	return (tetri);
 }
