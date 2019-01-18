@@ -6,7 +6,7 @@
 /*   By: flhember <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/15 15:47:27 by flhember          #+#    #+#             */
-/*   Updated: 2019/01/16 11:08:47 by flhember         ###   ########.fr       */
+/*   Updated: 2019/01/17 18:55:11 by flhember         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int		ft_sqrt_map(int nb)
 			return (rc);
 		rc++;
 	}
-	return (0);
+	return (2);
 }
 
 t_map	*ft_filling_map(t_map *map)
@@ -49,13 +49,13 @@ t_map	*ft_filling_map(t_map *map)
 
 	i = 0;
 	j = 0;
-	if (!(map->map = (char **)malloc(sizeof(char*) * map->xmax + 1)))
+	if (!(map->map = (char **)malloc(sizeof(char*) * map->xymax + 1)))
 		return (0);
-	while (i < map->xmax)
+	while (i < map->xymax)
 	{
-		if (!(map->map[i] = (char*)malloc(sizeof(char) * map->xmax + 1)))
+		if (!(map->map[i] = (char*)malloc(sizeof(char) * map->xymax + 1)))
 			return (0);
-		while (j < map->xmax)
+		while (j < map->xymax)
 		{
 			map->map[i][j] = '.';
 			j++;
@@ -76,8 +76,7 @@ t_map	*ft_set_map(int xmax)
 	map = NULL;
 	if (!(map = (t_map*)malloc(sizeof(t_map))))
 		return (0);
-	map->xmax = xmax;
-	map->ymax = map->xmax;
+	map->xymax = xmax;
 	map = ft_filling_map(map);
 	return (map);
 }

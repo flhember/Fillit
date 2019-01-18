@@ -6,7 +6,7 @@
 /*   By: brpinto <brpinto@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/17 16:41:34 by flhember          #+#    #+#             */
-/*   Updated: 2019/01/16 14:58:04 by flhember         ###   ########.fr       */
+/*   Updated: 2019/01/17 19:09:57 by flhember         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,21 +18,59 @@ void	ft_lstaddtetri(t_piece **alst, t_piece *new)
 	*alst = new;
 }
 
-/*char	**ft_filling_piece(char *buf, char **piece)
+int		get_tetri_width(char **tetri)
 {
 	int		i;
 	int		j;
+	int		xmax;
+	int		width;
 
 	i = 0;
-	j = 0;
-	while (buf[i])
+	width = 0;
+	xmax = 0;
+	while (tetri[i])
 	{
-		
-		
+		j = 0;
+		while (tetri[i][j] != '\0')
+		{
+			if (tetri[i][j] == '#' && j > xmax)
+				xmax = j;
+			j++;
+		}
+		i++;
 	}
-	return (piece);
+	width = xmax + 1;
+	//printf("width = %d\n", width);
+	return (width);
 }
-*/
+
+int		get_tetri_height(char **tetri)
+{
+	int		i;
+	int		j;
+	int		k;
+	int		height;
+
+	i = 0;
+	height = 0;
+	while (tetri[i])
+	{
+		j = 0;
+		k = 0;
+		while (tetri[i][j] != '\0')
+		{
+			if (tetri[i][j] == '#')
+				k = 1;
+			j++;
+		}
+		if (k == 1)
+			height++;
+		i++;
+	}
+	//printf("height = %d\n", height);
+	return (height);
+}
+
 t_piece	*ft_lstnewtetri(char *content, size_t content_size, int nb)
 {
 	t_piece	*new;
@@ -42,9 +80,21 @@ t_piece	*ft_lstnewtetri(char *content, size_t content_size, int nb)
 	new = NULL;
 	if (!(new = (t_piece*)malloc(sizeof(t_piece))))
 		return (NULL);
+	printf("i");
+	new->y = 0;
+	printf("u");
+	new->x = 0;
+	printf("y");
 	new->content = reset(ft_strsplit(content, '\n'));
+	printf("t");
 	new->content_size = content_size;
+	printf("r");
 	new->alpha = 65 + nb;
+	printf("q");
 	new->next = NULL;
+	printf("w");
+	new->height = get_tetri_height(new->content);
+	printf("e");
+	new->width = get_tetri_width(new->content);
 	return (new);
 }

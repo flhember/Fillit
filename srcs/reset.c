@@ -6,7 +6,8 @@
 /*   By: brpinto <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/16 14:01:51 by brpinto           #+#    #+#             */
-/*   Updated: 2019/01/16 17:48:32 by flhember         ###   ########.fr       */
+/*   Updated: 2019/01/17 19:08:47 by flhember         ###   ########.fr       */
+/*   Updated: 2019/01/17 16:11:36 by brpinto          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +33,6 @@ int	get_xmin(char **tetri)
 		}
 		i++;
 	}
-	ft_putstr("xmin = ");
-	ft_putnbr(xmin);
-	ft_putchar('\n');
 	return (xmin);
 }
 
@@ -58,9 +56,6 @@ int	get_ymin(char **tetri)
 		}
 		i++;
 	}
-	ft_putstr("ymin = ");
-	ft_putnbr(ymin);
-	ft_putchar('\n');
 	return (ymin);
 }
 
@@ -82,20 +77,35 @@ char **reset(char **tetri)
 		{
 			if (tetri[i][j] == '#')
 			{
-				tetri[i - ymin][j - xmin] = tetri[i][j];
-				tetri[i][j] = '.';
+				if (ymin == 0 && xmin == 0)
+				{
+					while (tetri[i])
+					{
+						ft_putstr(tetri[i]);
+						ft_putchar('\n');
+						i++;
+					}
+					ft_putchar('\n');
+					return (tetri);
+				}
+				else
+				{
+
+					tetri[i - ymin][j - xmin] = tetri[i][j];
+					tetri[i][j] = '.';
+				}
 			}
 			j++;
 		}
 		i++;
 	}
-	i = 0;
+	/*i = 0;
 	while (tetri[i])
 	{
 		ft_putstr(tetri[i]);
 		ft_putchar('\n');
 		i++;
 	}
-	ft_putchar('\n');
+	ft_putchar('\n');*/
 	return (tetri);
 }

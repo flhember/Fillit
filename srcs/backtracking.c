@@ -6,88 +6,112 @@
 /*   By: flhember <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/15 17:45:14 by flhember          #+#    #+#             */
-/*   Updated: 2019/01/16 17:43:56 by flhember         ###   ########.fr       */
+/*   Updated: 2019/01/17 18:55:47 by flhember         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fillit.h"
 
-/*int		ft_check_piece(int x, int y, t_map *map, t_piece *piece)
+void		ft_put_piece(t_piece *piece, t_map *map, char c)
 {
 	int		i;
+	int		j;
 
-	i = 0;
-	while (piece->content[i] != '#')
-		i++;
-	while (y < map->ymax)
+	j = 0;
+	while (piece->y + j <= map->xymax)
 	{
-		x = 0;
-		while (x < map->xmax)
+		i = 0;
+		while (piece->x + i <= map->xymax)
 		{
-			if (map->map[y][x] == '.' && piece->content[i] == '#')
-			{
-				map->map[y][x] = '#';
-				x++;
-			}
-			else
-				return (0);
+			if (piece->content[piece->y + j][piece->x + i] == '#')
+				map->map[piece->y + j][piece->x + i] = c;
 			i++;
 		}
+		j++;
 	}
+}
+
+int		ft_check_piece(t_map *map, t_piece *piece)
+{
+	int		j;
+	int		i;
+
+	j = 0;
+	while (j + piece->y < map->xymax)
+	{
+		i = 0;
+		while (i + piece->x < map->xymax)
+		{
+			if (piece->content[j][i] == '#')
+			{
+				if (map->map[piece->y + j][piece->x + i] != '.')
+					return (0);
+			}
+			i++;
+		}
+		j++;
+	}
+	ft_put_piece(piece, map, piece->alpha);
 	return (1);
 }
 
-int		ft_delete(t_piece *piece, t_map map)
+int		ft_backtracking(t_piece *piece, t_map *map)
 {
-	int		i;
-
-	i = 0;
-
-
-
-}
-
-int		ft_backtracking(t_piece piece, t_map map, int i)
-{
-	int		x;
-	int		y;
-
-	y = 0;
-	while (y < map->ymax)
+	if (piece == NULL)
+		return (1);
+	while (piece->y + piece->height - 1 < map->xymax)
 	{
-		x = 0;
-		while (x < map->xmax)
+		piece->x = 0;
+		while (piece->x + piece->width - 1 < map->xymax)
 		{
-			if (ft_check_piece(x, y, piece[i], map))
+			if (ft_check_piece(map, piece))
 			{
-				if (ft_backtracking(piece, map, i + 1))
+				if (ft_backtracking(piece->next, map))
+				{
+					printf("ca passe");
 					return (1);
+				}
 				else
-					ft_delete(piece, map)
+					printf("non");
+					ft_put_piece(piece, map, '.');
 			}
-			x++;
+			piece->x++;
 		}
-		y++;
+		piece->y++;
 	}
 	return (0);
-}*/
+}
 
-int		ft_resolution(t_piece **tetri)
+int		ft_lstlen(t_piece *piece)
+{
+	int		nb;
+
+	nb = 0;
+	while (piece)
+	{
+		nb++;
+		piece = piece->next;
+	}
+	return (nb);
+}
+
+int		ft_resolution(t_piece *piece)
 {
 	int		xmax;
 	int		nb_piece;
 	t_map	*map;
-	t_piece *piece;
 
-	nb_piece = 0;
-	piece = *tetri;
-	while (piece)
-	{
-		nb_piece++;
-		piece = piece->next;
-	}
+	nb_piece = ft_lstlen(piece);
 	xmax = ft_sqrt_map(nb_piece * 4);
 	map = ft_set_map(xmax);
+	while (!(ft_backtracking(piece, map)))
+	{
+		printf("map++");
+		piece->x = 0;
+		piece->y = 0;
+		xmax++;
+		map = ft_set_map(xmax);
+	}
 	ft_print_map(map);
 	return (0);
 }
