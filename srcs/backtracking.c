@@ -16,17 +16,15 @@ void		ft_put_piece(t_piece *piece, t_map *map, char c)
 {
 	int		i;
 	int		j;
+
 	j = 0;
 	while (piece->content[j])
 	{
 		i = 0;
-		while (piece->content[j][i])
+		while (piece->content[j][i++])
 		{
 			if (piece->content[j][i] == '#')
-			{
 				map->map[piece->y + j][piece->x + i] = c;
-			}
-			i++;
 		}
 		j++;
 	}
